@@ -2,26 +2,24 @@ import pytest
 import tasks
 from tasks import Task
 
+tasks_to_try = (Task('sleep', done=True),
+                Task('wake', 'brian'),
+                Task('breathe', 'BRIAN', True),
+                Task('exercise', 'BrIaN', False))
+task_ids = ['Task({},{},{})'.format(t.summary, t.owner, t.done)
+            for t in tasks_to_try]
 
-@pytest.fixture(autouse=True)
-def initialized_tasks_db(tmpdir):
-    tasks.start_tasks_db(str(tmpdir), 'tiny')
-    yield
-    tasks.stop_tasks_db()
+
+@pytest.fixture(params=tasks_to_try, ids=task_ids)
+def a_task(request):
+    return request.param
 
 
-@pytest.mark.parametrize('summary, owner, done',
-                         [('sleep', None, False),
-                          ('wake', 'brian', False),
-                          ('breathe', 'BRIAN', True),
-                          ('eat eggs', 'BrIaN', False),
-                         ])
-def test_add(summary, owner, done):
-    task = Task(summary, owner, done)
-    task_id = tasks.add(task)
+def test_add(tasks_db, a_task):
+    task_id = tasks.add(a_task)
     t_from_db = tasks.get(task_id)
 
-    assert equivalent(t_from_db, task)
+    assert equivalent(t_from_db, a_task)
 
 
 def equivalent(t1, t2):
