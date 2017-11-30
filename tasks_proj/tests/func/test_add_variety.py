@@ -15,6 +15,7 @@ def a_task(request):
     return request.param
 
 
+@pytest.mark.skip(reason='problems with mongo')
 def test_add(tasks_db, a_task):
     task_id = tasks.add(a_task)
     t_from_db = tasks.get(task_id)
