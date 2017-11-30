@@ -1,15 +1,9 @@
 {
   "tests/func/test_add.py::test_add_returns_valid_id": true,
-  "tests/func/test_add.py::test_add_returns_valid_id[mongo]": true,
   "tests/func/test_add.py::test_added_task_has_id_set": true,
-  "tests/func/test_add.py::test_added_task_has_id_set[mongo]": true,
-  "tests/func/test_add_variety.py::test_add[Task(breathe,BRIAN,True)-mongo]": true,
   "tests/func/test_add_variety.py::test_add[Task(breathe,BRIAN,True)]": true,
-  "tests/func/test_add_variety.py::test_add[Task(exercise,BrIaN,False)-mongo]": true,
   "tests/func/test_add_variety.py::test_add[Task(exercise,BrIaN,False)]": true,
-  "tests/func/test_add_variety.py::test_add[Task(sleep,None,True)-mongo]": true,
   "tests/func/test_add_variety.py::test_add[Task(sleep,None,True)]": true,
-  "tests/func/test_add_variety.py::test_add[Task(wake,brian,False)-mongo]": true,
   "tests/func/test_add_variety.py::test_add[Task(wake,brian,False)]": true,
   "tests/unit/test_task_fail.py::test_dict_equality": true,
   "tests/unit/test_task_fail.py::test_task_equality": true

@@ -2,6 +2,7 @@ import pytest
 import tasks
 from tasks import Task
 
+
 @pytest.mark.skip(reason='problems with mongo')
 def test_add_returns_valid_id(tasks_db):
     new_task = Task('do something')

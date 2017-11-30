@@ -17,6 +17,7 @@ def tasks_db_session(tmpdir_factory, request):
 def tasks_db(tasks_db_session):
     tasks.delete_all()
 
+
 @pytest.fixture(scope='session')
 def tasks_just_a_few():
     return (

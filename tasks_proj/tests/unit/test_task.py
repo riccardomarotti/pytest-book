@@ -8,7 +8,7 @@ def test_asdict():
     expected = {'summary': 'do something',
                 'owner': 'okken',
                 'done': True,
-                'id': 21 }
+                'id': 21}
 
     assert t_dict == expected
 
